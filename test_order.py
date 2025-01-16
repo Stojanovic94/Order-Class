@@ -1,22 +1,28 @@
 import unittest
-from order import Order  # Uveri se da je import tačan
+from order import Order  # Uveri se da je import tačan pod obavezno
 
 class TestOrder(unittest.TestCase):
 
     def test_calculate_total_positive(self):
         """Testira da li metoda pravilno računa iznos kada je cena i količina pozitivna"""
-        order = Order(100, 3)  # Cena po komadu je 100, a količina 3
-        self.assertEqual(order.calculate_total(), 300)  # Očekivana ukupna cena je 300
+        # Cena po komadu je 100, a količina 3
+        # Očekivana ukupna cena je 300
+        order = Order(100, 3) 
+        self.assertEqual(order.calculate_total(), 300)
 
     def test_calculate_total_zero_quantity(self):
         """Testira da li metoda pravilno vraća 0 kada je količina 0"""
-        order = Order(100, 0)  # Cena po komadu je 100, a količina je 0
-        self.assertEqual(order.calculate_total(), 0)  # Ukupna cena treba biti 0
+        # Cena po komadu je 100, a količina je 0
+        # Ukupna cena treba biti 0
+        order = Order(100, 0)
+        self.assertEqual(order.calculate_total(), 0)
 
     def test_calculate_total_negative_price(self):
         """Testira kako metoda reaguje na negativnu cenu"""
-        order = Order(-100, 3)  # Cena po komadu je -100, a količina je 3
-        self.assertEqual(order.calculate_total(), -300)  # Očekivana ukupna cena je -300
+        # Cena po komadu je -100, a količina je 3
+        # Očekivana ukupna cena je -300
+        order = Order(-100, 3)
+        self.assertEqual(order.calculate_total(), -300)
 
     def test_calculate_total_invalid_input(self):
         """Testira kako metoda reaguje na nevalidne ulaze"""
